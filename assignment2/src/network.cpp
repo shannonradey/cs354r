@@ -6,6 +6,9 @@
 
 using namespace godot;
 
+/* Majority of file taken from Godot Multiplayer API tutorial github */
+
+
 void Network::_register_methods()
 {
     register_method("_init", &Network::_init, GODOT_METHOD_RPC_MODE_DISABLED);

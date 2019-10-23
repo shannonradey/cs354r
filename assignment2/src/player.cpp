@@ -188,4 +188,8 @@ void Player::init(String nickname, Vector3 startPosition, bool isSlave)
         ((CanvasItem *)get_child(11))->set_visible(false);
         ((CanvasItem *)get_child(13))->set_visible(false);
     }
+    else
+    {
+        get_child(13)->call("mute");
+    }
 }
