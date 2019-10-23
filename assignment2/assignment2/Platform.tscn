@@ -1,0 +1,119 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://bin/candy.gdns" type="Script" id=1]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.596078, 0.462745, 0.305882, 1 )
+
+[sub_resource type="CubeMesh" id=2]
+material = SubResource( 1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.247059, 0.52549, 0.137255, 1 )
+
+[sub_resource type="CubeMesh" id=4]
+material = SubResource( 3 )
+
+[sub_resource type="BoxShape" id=5]
+
+[sub_resource type="CubeMesh" id=6]
+
+[sub_resource type="BoxShape" id=7]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="CSGMesh" type="CSGMesh" parent="StaticBody"]
+transform = Transform( 15, 0, 0, 0, 5, 0, 0, 0, 15, 0, 5, 0 )
+mesh = SubResource( 2 )
+
+[node name="CSGMesh2" type="CSGMesh" parent="StaticBody"]
+transform = Transform( 15, 0, 0, 0, 0.8, 0, 0, 0, 15, 0, 10.8, 0 )
+mesh = SubResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 15, 0, 0, 0, 5.6, 0, 0, 0, 15, 0, 6, 0 )
+shape = SubResource( 5 )
+
+[node name="Ledge4" type="Spatial" parent="."]
+editor/display_folded = true
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.07, -2, -16 )
+visible = false
+
+[node name="CSGMesh" type="CSGMesh" parent="Ledge4"]
+transform = Transform( 15, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 16.02, 13.78, 15.1 )
+mesh = SubResource( 6 )
+
+[node name="Area" type="Area" parent="Ledge4/CSGMesh"]
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Ledge4/CSGMesh/Area"]
+transform = Transform( 1, 0, -5.55112e-17, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 7 )
+
+[node name="Ledge2" type="Spatial" parent="."]
+editor/display_folded = true
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -2, -16.3953 )
+visible = false
+
+[node name="CSGMesh" type="CSGMesh" parent="Ledge2"]
+transform = Transform( 15, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -16.371, 13.78, 15.2 )
+mesh = SubResource( 6 )
+
+[node name="Area" type="Area" parent="Ledge2/CSGMesh"]
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Ledge2/CSGMesh/Area"]
+transform = Transform( 1, 0, 5.55112e-17, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 7 )
+
+[node name="Ledge" type="Spatial" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, -16 )
+visible = false
+
+[node name="CSGMesh" type="CSGMesh" parent="Ledge"]
+editor/display_folded = true
+transform = Transform( 4.7, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -10.1952, 13.78, 31.195 )
+mesh = SubResource( 6 )
+
+[node name="Area" type="Area" parent="Ledge/CSGMesh"]
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Ledge/CSGMesh/Area"]
+transform = Transform( 1, 0, 5.55111e-17, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 7 )
+
+[node name="Ledge1A" type="Spatial" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.3164, -2, -16 )
+visible = false
+
+[node name="CSGMesh" type="CSGMesh" parent="Ledge1A"]
+editor/display_folded = true
+transform = Transform( 4.7, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -10.2678, 13.78, 31.195 )
+mesh = SubResource( 6 )
+
+[node name="Area" type="Area" parent="Ledge1A/CSGMesh"]
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Ledge1A/CSGMesh/Area"]
+transform = Transform( 1, 0, 5.55111e-17, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 7 )
+
+[node name="Ledge3" type="Spatial" parent="."]
+editor/display_folded = true
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -2, 16 )
+visible = false
+
+[node name="CSGMesh" type="CSGMesh" parent="Ledge3"]
+transform = Transform( 15, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 13.78, 31.1 )
+mesh = SubResource( 6 )
+
+[node name="Area" type="Area" parent="Ledge3/CSGMesh"]
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Ledge3/CSGMesh/Area"]
+transform = Transform( 1, 0, 2.22045e-16, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 7 )

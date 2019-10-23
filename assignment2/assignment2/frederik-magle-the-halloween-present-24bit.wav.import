@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/frederik-magle-the-halloween-present-24bit.wav-62ccab2e7a9799e778650a00c110b10e.sample"
+
+[deps]
+
+source_file="res://frederik-magle-the-halloween-present-24bit.wav"
+dest_files=[ "res://.import/frederik-magle-the-halloween-present-24bit.wav-62ccab2e7a9799e778650a00c110b10e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

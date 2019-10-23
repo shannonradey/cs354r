@@ -1,0 +1,119 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://orange-rectangle.png" type="Texture" id=1]
+[ext_resource path="res://Comfortaa-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://lifebar_bg.png" type="Texture" id=3]
+[ext_resource path="res://lifebar_fill.png" type="Texture" id=4]
+[ext_resource path="res://bin/healthbar.gdns" type="Script" id=5]
+[ext_resource path="res://wickedlaugh1.wav" type="AudioStream" id=6]
+[ext_resource path="res://bin/sound.gdns" type="Script" id=7]
+[ext_resource path="res://392183__dexus5__negative.wav" type="AudioStream" id=8]
+[ext_resource path="res://candy.png" type="Texture" id=9]
+[ext_resource path="res://bin/candycounter.gdns" type="Script" id=10]
+[ext_resource path="res://341695__projectsu012__coins-1.wav" type="AudioStream" id=11]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 18
+font_data = ExtResource( 2 )
+
+[node name="GUI" type="MarginContainer"]
+anchor_right = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -24.0
+margin_bottom = 73.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 980.0
+margin_bottom = 53.0
+
+[node name="Bars" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 891.0
+margin_bottom = 53.0
+size_flags_horizontal = 3
+
+[node name="Bar" type="HBoxContainer" parent="HBoxContainer/Bars"]
+margin_right = 891.0
+margin_bottom = 53.0
+
+[node name="Count" type="MarginContainer" parent="HBoxContainer/Bars/Bar"]
+margin_right = 90.0
+margin_bottom = 53.0
+
+[node name="Background" type="NinePatchRect" parent="HBoxContainer/Bars/Bar/Count"]
+margin_right = 90.0
+margin_bottom = 53.0
+rect_min_size = Vector2( 90, 25 )
+texture = ExtResource( 1 )
+
+[node name="Title" type="Label" parent="HBoxContainer/Bars/Bar/Count/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_right = 4.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "HEALTH"
+valign = 1
+
+[node name="Gauge" type="TextureProgress" parent="HBoxContainer/Bars/Bar"]
+margin_left = 94.0
+margin_right = 490.0
+margin_bottom = 53.0
+value = 75.0
+texture_under = ExtResource( 3 )
+texture_progress = ExtResource( 4 )
+script = ExtResource( 5 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HBoxContainer/Bars/Bar"]
+stream = ExtResource( 6 )
+script = ExtResource( 7 )
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="HBoxContainer/Bars/Bar"]
+stream = ExtResource( 8 )
+script = ExtResource( 7 )
+
+[node name="Counters" type="HBoxContainer" parent="HBoxContainer"]
+margin_left = 895.0
+margin_right = 980.0
+margin_bottom = 53.0
+
+[node name="Counter" type="MarginContainer" parent="HBoxContainer/Counters"]
+margin_right = 85.0
+margin_bottom = 53.0
+
+[node name="Background" type="NinePatchRect" parent="HBoxContainer/Counters/Counter"]
+margin_right = 85.0
+margin_bottom = 53.0
+rect_min_size = Vector2( 85, 25 )
+texture = ExtResource( 1 )
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Counters/Counter/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 14.6177
+margin_top = -12.8457
+margin_right = 529.618
+margin_bottom = 538.154
+rect_scale = Vector2( 0.13, 0.13 )
+texture = ExtResource( 9 )
+
+[node name="Number" type="Label" parent="HBoxContainer/Counters/Counter/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 6.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0.00784314, 0.00784314, 0.00784314, 1 )
+text = "10"
+valign = 1
+script = ExtResource( 10 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HBoxContainer/Counters/Counter/Background"]
+stream = ExtResource( 11 )
+script = ExtResource( 7 )

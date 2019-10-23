@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://bin/game.gdns" type="Script" id=1]
+[ext_resource path="res://Floor1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://CandyTest.tscn" type="PackedScene" id=3]
+[ext_resource path="res://CandyA.tscn" type="PackedScene" id=4]
+[ext_resource path="res://bin/attacklight.gdns" type="Script" id=5]
+[ext_resource path="res://AttackLight.tscn" type="PackedScene" id=6]
+
+[sub_resource type="CylinderShape" id=1]
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="Spatial" parent="." instance=ExtResource( 2 )]
+
+[node name="Spatial2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2, 0 )
+
+[node name="Spatial3" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5 )
+
+[node name="SpotLight" type="SpotLight" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 0.0871558, 0.996195, 0, -0.996195, 0.0871558, 24, 15, -16 )
+light_energy = 7.46
+light_indirect_energy = 3.59
+spot_range = 19.1301
+spot_angle = 17.5454
+
+[node name="Area" type="Area" parent="SpotLight"]
+editor/display_folded = true
+transform = Transform( 4, 0, 0, 0, 0.435779, -3.98478, 0, 4.98097, 0.348623, 0, 0.211796, -9.05291 )
+gravity_vec = Vector3( 0, 0, 0 )
+gravity = 0.0
+script = ExtResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="SpotLight/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 1.77636e-15, 0, -7.10543e-15, 1, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23, 0 )
+
+[node name="Spatial4" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 0 )
+
