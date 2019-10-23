@@ -42,6 +42,8 @@ void Player::_init() {
 void Player::_die() {
     set_visible(false);
     alive = false;
+    remove_child(get_child(5));
+    remove_child(get_child(5));
 }
 
 void Player::_ready() {
