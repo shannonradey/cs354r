@@ -56,8 +56,11 @@ void CandyCounter::final() {
 
 void CandyCounter::rematch() {
     Godot::print("Rematch");
+    get_tree()->change_scene("res://Lobby.tscn");
+
 }
 
 void CandyCounter::disconnect() {
     Godot::print("disconnect");
+    get_tree()->quit();
 }

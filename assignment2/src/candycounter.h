@@ -8,6 +8,9 @@
 #include <String.hpp>
 #include <candy.h>
 #include <CanvasItem.hpp>
+#include <SceneTree.hpp>
+
+
 
 namespace godot {
 
