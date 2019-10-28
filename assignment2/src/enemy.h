@@ -2,14 +2,15 @@
 #define ENEMY_H
 
 #include <Godot.hpp>
-#include <Area.hpp>
+#include <KinematicBody.hpp>
 
 namespace godot {
 
-class Enemy : public Area {
-    GODOT_CLASS(Enemy, Area)
+class Enemy : public KinematicBody {
+    GODOT_CLASS(Enemy, KinematicBody)
 
 private:
+	int speed;
 
 
 public:
