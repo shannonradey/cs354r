@@ -21,8 +21,10 @@ void AttackLight::_ready() {
 
 
 void AttackLight::_on_body_entered(int body_id, Node *body, int body_shape, int area_shape) {
-    Node *node = body->get_child(11)->get_child(0)->get_child(0)->get_child(0)->get_child(1);
-    node->call("_decrement");
+    if (body->get_name() == "player") {
+	    Node *node = body->get_child(11)->get_child(0)->get_child(0)->get_child(0)->get_child(1);
+	    node->call("_decrement");
+	}
 }
 
 

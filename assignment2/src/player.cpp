@@ -180,6 +180,7 @@ void Player::_hang(String led) {
 
 void Player::init(String nickname, Vector3 startPosition, bool isSlave)
 {
+    set_name("player");
     set_translation(startPosition);
     printf("isSlave = %d\n", isSlave);
     if (isSlave)

@@ -25,23 +25,24 @@ void Candy::_ready() {
 
 
 void Candy::_on_body_entered(int body_id, Node *body, int body_shape, int area_shape) {
+    if (body->get_name() == "player") {
+        String name = get_parent()->get_parent()->get_name();
+        String ledge = name;
 
-    String name = get_parent()->get_parent()->get_name();
-    String ledge = name;
-
-    if ((name == "Ledge") || (name == "Ledge1A") || (name == "Ledge2") || (name == "Ledge3") || (name == "Ledge4")){
-        body->call("_hang");
-    }
-    else {
-        if (is_visible()) {
-            Node *counter = body->get_child(11)->get_child(0)->get_child(1)->get_child(0)->get_child(0)->get_child(1);
-            Node *coin_noise = body->get_child(11)->get_child(0)->get_child(1)->get_child(0)->get_child(0)->get_child(2);
-            Node *final = body->get_child(10)->get_child(0)->get_child(1);
-            counter->call("_increment");
-            final->call("_increment");
-            coin_noise->call("_play");
-            set_visible(false);
-            time_hit = time(NULL);
+        if ((name == "Ledge") || (name == "Ledge1A") || (name == "Ledge2") || (name == "Ledge3") || (name == "Ledge4")){
+            body->call("_hang");
+        }
+        else {
+            if (is_visible()) {
+                Node *counter = body->get_child(11)->get_child(0)->get_child(1)->get_child(0)->get_child(0)->get_child(1);
+                Node *coin_noise = body->get_child(11)->get_child(0)->get_child(1)->get_child(0)->get_child(0)->get_child(2);
+                Node *final = body->get_child(10)->get_child(0)->get_child(1);
+                counter->call("_increment");
+                final->call("_increment");
+                coin_noise->call("_play");
+                set_visible(false);
+                time_hit = time(NULL);
+            }
         }
     }
 }

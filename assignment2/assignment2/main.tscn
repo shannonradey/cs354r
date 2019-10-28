@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://bin/game.gdns" type="Script" id=1]
 [ext_resource path="res://Floor1.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Platform.tscn" type="PackedScene" id=11]
 [ext_resource path="res://SoundEffects.tscn" type="PackedScene" id=12]
 [ext_resource path="res://AttackLight.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=14]
 
 [sub_resource type="Environment" id=1]
 background_mode = 3
@@ -131,3 +132,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 14, -8 )
 
 [node name="Spatial8" parent="." instance=ExtResource( 3 )]
 transform = Transform( 0.642788, 0, 0.766044, 0, 1, 0, -0.766044, 0, 0.642788, -7, 18, -6 )
+
+[node name="Spatial9" parent="." instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.75, 1.00062, 0 )
