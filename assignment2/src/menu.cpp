@@ -71,5 +71,5 @@ void Menu::_on_JoinButton_pressed()
 
 void Menu::_load_game()
 {
-    get_tree()->change_scene("res://test.tscn");
+    get_tree()->change_scene("res://main.tscn");
 }

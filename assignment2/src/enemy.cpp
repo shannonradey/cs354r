@@ -45,8 +45,6 @@ void Enemy::_process(float delta) {
             if (node->get_name() == "player") {
                 Vector3 player_pos = ((Spatial *)node)->get_global_transform().origin;
                 Vector3 cur_pos = get_global_transform().origin;
-                Godot::print(player_pos.x - cur_pos.x);
-                Godot::print(player_pos.z - cur_pos.z);
                 if (player_pos.x < cur_pos.x) {
                     move.x += -1;
                 }
@@ -63,5 +61,5 @@ void Enemy::_process(float delta) {
             }
         }
     }
-    move_and_slide(move.operator*(3));
+    move_and_slide((move.operator*(3)).normalized());
 }

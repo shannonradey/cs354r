@@ -180,8 +180,8 @@ void Player::_hang(String led) {
 
 void Player::init(String nickname, Vector3 startPosition, bool isSlave)
 {
-    set_name("player");
     set_translation(startPosition);
+    set_name("player"); 
     printf("isSlave = %d\n", isSlave);
     if (isSlave)
     {
@@ -191,6 +191,7 @@ void Player::init(String nickname, Vector3 startPosition, bool isSlave)
     }
     else
     {
-        get_child(13)->call("mute");
+        /* PUT BACK IN BEFORE TURN IN */
+        // get_child(13)->call("mute"); 
     }
 }

@@ -20,6 +20,7 @@ Candy::~Candy() {
 
 void Candy::_ready() {
     this->connect("body_shape_entered", this, "_on_body_entered");
+    set_name("candy");
 
 }
 
@@ -42,7 +43,16 @@ void Candy::_on_body_entered(int body_id, Node *body, int body_shape, int area_s
                 coin_noise->call("_play");
                 set_visible(false);
                 time_hit = time(NULL);
+                set_name("nocandy");
             }
+        }
+    }
+    if (body->get_name() == "candygrabber")
+    {
+        if (is_visible()) {
+            set_visible(false);
+            time_hit = time(NULL);
+            set_name("nocandy");
         }
     }
 }
@@ -56,6 +66,7 @@ void Candy::_process(float delta) {
     if (!is_visible()) {
         if (time(NULL) - 10 > time_hit) {
             set_visible(true);
+            set_name("candy");
         }
 
     }

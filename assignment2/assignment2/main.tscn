@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://bin/game.gdns" type="Script" id=1]
 [ext_resource path="res://Floor1.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://SoundEffects.tscn" type="PackedScene" id=12]
 [ext_resource path="res://AttackLight.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Enemy.tscn" type="PackedScene" id=14]
+[ext_resource path="res://CandyGrabber.tscn" type="PackedScene" id=15]
 
 [sub_resource type="Environment" id=1]
 background_mode = 3
@@ -135,3 +136,15 @@ transform = Transform( 0.642788, 0, 0.766044, 0, 1, 0, -0.766044, 0, 0.642788, -
 
 [node name="Spatial9" parent="." instance=ExtResource( 14 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.75, 1.00062, 0 )
+
+[node name="Spatial10" parent="." instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0163, 1.00062, 17.2665 )
+
+[node name="Spatial11" parent="." instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.7405, -52.4961 )
+
+[node name="Spatial12" parent="." instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.6033, 1.00062, 0 )
+
+[node name="Spatial13" parent="." instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26.5025, 1.50556, 17.3884 )
