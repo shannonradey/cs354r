@@ -11,6 +11,11 @@ class CandyGrabber : public KinematicBody {
 
 private:
 	int speed;
+	Array waypoints;
+	int num_waypoints;
+	Vector3 target;
+	Vector3 prev_pos;
+	time_t time_hit;
 
 
 public:
@@ -20,6 +25,8 @@ public:
     ~CandyGrabber();
 
     void _ready();
+    void set_target();
+    void hit_ledge();
 
     void _init(); // our initializer called by Godot
 

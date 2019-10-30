@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://bin/game.gdns" type="Script" id=1]
 [ext_resource path="res://Floor1.tscn" type="PackedScene" id=2]
@@ -22,6 +22,10 @@ background_energy = 0.0
 ambient_light_color = Color( 0.631373, 0.607843, 0.529412, 1 )
 ambient_light_energy = 1.7
 
+[sub_resource type="CubeMesh" id=2]
+
+[sub_resource type="CubeMesh" id=3]
+
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 1 )
 
@@ -31,13 +35,13 @@ environment = SubResource( 1 )
 [node name="Floor" parent="." instance=ExtResource( 2 )]
 
 [node name="CandyA1" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.22455, -0.162462, 13.7309 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.81704, -0.162459, 14.3954 )
 
 [node name="CandyA2" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 4, -20 )
 
 [node name="CandyA3" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 1, 2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26.7514, 1, 2 )
 
 [node name="CandyA4" parent="." instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.5, 13, -64.5125 )
@@ -100,7 +104,7 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -25, 0,
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.439, 11.6, -68.01 )
 
 [node name="Ramp1" parent="." instance=ExtResource( 10 )]
-transform = Transform( 0.000194719, 0.00577372, 0.999984, 0.0630739, 0.997992, -0.00577451, -0.998009, 0.0630739, -0.000169843, -2.56855, 1.02623, -31.7422 )
+transform = Transform( 0.000248881, 0.00577429, 0.999984, 0.073237, 0.997298, -0.00577701, -0.997315, 0.0732372, -0.000174683, -2.56855, 1.02623, -31.7422 )
 
 [node name="OmniLight" type="OmniLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -92.3465, 86.4605, 22.6212 )
@@ -135,16 +139,87 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 14, -8 )
 transform = Transform( 0.642788, 0, 0.766044, 0, 1, 0, -0.766044, 0, 0.642788, -7, 18, -6 )
 
 [node name="Spatial9" parent="." instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.75, 1.00062, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.4257, 1.00062, 0 )
 
 [node name="Spatial10" parent="." instance=ExtResource( 14 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0163, 1.00062, 17.2665 )
 
 [node name="Spatial11" parent="." instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.7405, -52.4961 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.9563, -52.4961 )
 
 [node name="Spatial12" parent="." instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.6033, 1.00062, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0957, 1.00062, 18.2529 )
 
 [node name="Spatial13" parent="." instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26.5025, 1.50556, 17.3884 )
+
+[node name="Waypoints" type="Spatial" parent="."]
+editor/display_folded = true
+visible = false
+
+[node name="MeshInstance" type="MeshInstance" parent="Waypoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.60925, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="Waypoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.9067, 1.89598, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="MeshInstance3" type="MeshInstance" parent="Waypoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.8311, 1.63676, 20.3917 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="MeshInstance4" type="MeshInstance" parent="Waypoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.36086, 2.03939, 20.3917 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="MeshInstance5" type="MeshInstance" parent="Waypoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5677, 1.20012, 20.3917 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="MeshInstance6" type="MeshInstance" parent="Waypoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5677, 1.68314, 3.95196 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="MeshInstance7" type="MeshInstance" parent="Waypoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5677, 1.20012, -19.8148 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="MeshInstance8" type="MeshInstance" parent="Waypoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.20715, 2.35109, -19.8148 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="MeshInstance9" type="MeshInstance" parent="Waypoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4775, 2.15793, -19.8148 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Waypoints2" type="Spatial" parent="."]
+editor/display_folded = true
+visible = false
+
+[node name="MeshInstance" type="MeshInstance" parent="Waypoints2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.2247, 12.7523, -49.3993 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="Waypoints2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1142, 12.7523, -42.0478 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="MeshInstance3" type="MeshInstance" parent="Waypoints2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.01776, 12.7523, -61.0199 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="Spatial14" parent="." instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44154, 0.742744 )

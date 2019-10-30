@@ -20,7 +20,9 @@ void AMap::_init() {
 }
 
 void AMap::_ready() {
+
 }
+
 
 void AMap::_process(float delta) {
  

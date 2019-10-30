@@ -48,12 +48,10 @@ void Menu::_on_TextField_text_changed(String newText)
 
 void Menu::_on_CreateButton_pressed()
 {
-    Godot::print("Create");
     if(playerName == "")
     {
         return;
     }
-    Godot::print(playerName);
     get_node("/root/Network")->call("create_server", playerName);
     _load_game();
 }

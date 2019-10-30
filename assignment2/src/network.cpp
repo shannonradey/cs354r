@@ -51,7 +51,6 @@ void Network::_ready()
 
 void Network::create_server(String playerNickname)
 {
-    printf("creae_server\n");
     selfData["name"] = playerNickname;
     players[1] = selfData;
     NetworkedMultiplayerENet* peer = NetworkedMultiplayerENet::_new();
@@ -62,7 +61,6 @@ void Network::create_server(String playerNickname)
 
 void Network::connect_to_server(String playerNickname)
 {
-    printf("connect_to_server\n");
     selfData["name"] = playerNickname;
     get_tree()->connect("connected_to_server", this, "_connected_to_server");
     NetworkedMultiplayerENet* peer = NetworkedMultiplayerENet::_new();
@@ -72,7 +70,6 @@ void Network::connect_to_server(String playerNickname)
 
 void Network::_connected_to_server()
 {
-    printf("_connected_to_server\n");
     int64_t localPlayerId = get_tree()->get_network_unique_id();
     players[localPlayerId] = selfData;
     rpc("_send_player_info", localPlayerId, selfData);
@@ -85,7 +82,6 @@ void Network::_on_player_disconnected(int64_t id)
 
 void Network::_on_player_connected(int64_t connectedPlayerId)
 {
-    printf("_on_player_connected\n");
     std::cout << "Player connected to server" << std::endl;
     int64_t localPlayerId = get_tree()->get_network_unique_id();
     if(!get_tree()->is_network_server())
@@ -96,7 +92,6 @@ void Network::_on_player_connected(int64_t connectedPlayerId)
 
 void Network::_request_player_info(int64_t requestFromId, int64_t playerId)
 {
-    printf("_request_player_info\n");
     if(get_tree()->is_network_server())
     {
         rpc_id(requestFromId, "_send_player_info", playerId, players[playerId]);
@@ -105,7 +100,6 @@ void Network::_request_player_info(int64_t requestFromId, int64_t playerId)
 
 void Network::_request_players(int64_t requestFromId)
 {
-    printf("_request_players\n");
     if(get_tree()->is_network_server())
     {
         for(int64_t peerId = 0; peerId < players.size(); peerId++)
@@ -120,7 +114,6 @@ void Network::_request_players(int64_t requestFromId)
 
 void Network::_send_player_info(int64_t id, Dictionary info)
 {
-    printf("_send_player_info\n");
     players[id] = info;
 
     ResourceLoader* resourceLoader = ResourceLoader::get_singleton();

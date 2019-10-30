@@ -182,7 +182,6 @@ void Player::init(String nickname, Vector3 startPosition, bool isSlave)
 {
     set_translation(startPosition);
     set_name("player"); 
-    printf("isSlave = %d\n", isSlave);
     if (isSlave)
     {
         set_translation(Vector3(0, 2, 0));
@@ -191,7 +190,6 @@ void Player::init(String nickname, Vector3 startPosition, bool isSlave)
     }
     else
     {
-        /* PUT BACK IN BEFORE TURN IN */
-        // get_child(13)->call("mute"); 
+        get_child(13)->call("mute"); 
     }
 }

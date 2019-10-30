@@ -10,9 +10,6 @@ class AMap : public Spatial {
     GODOT_CLASS(AMap, Spatial)
 
 private:
-	Dictionary all_points = Dictionary();
-	AStar as;
-
 public:
     static void _register_methods();
 

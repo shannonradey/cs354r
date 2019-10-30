@@ -26,12 +26,19 @@ void Candy::_ready() {
 
 
 void Candy::_on_body_entered(int body_id, Node *body, int body_shape, int area_shape) {
+    String name = get_parent()->get_parent()->get_name();
+    if (body->get_name() == "enemy" || body->get_name() == "candygrabber") {
+        if ((name == "Ledge") || (name == "Ledge1A") || (name == "Ledge2") || (name == "Ledge3") || (name == "Ledge4")){
+            body->call("hit_ledge");
+        }
+    }
+
     if (body->get_name() == "player") {
         String name = get_parent()->get_parent()->get_name();
         String ledge = name;
 
         if ((name == "Ledge") || (name == "Ledge1A") || (name == "Ledge2") || (name == "Ledge3") || (name == "Ledge4")){
-            body->call("_hang");
+            body->call("_hang", name);
         }
         else {
             if (is_visible()) {
@@ -47,7 +54,7 @@ void Candy::_on_body_entered(int body_id, Node *body, int body_shape, int area_s
             }
         }
     }
-    if (body->get_name() == "candygrabber")
+    if (body->get_name() == "candygrabber" || body->get_name() == "enemy")
     {
         if (is_visible()) {
             set_visible(false);

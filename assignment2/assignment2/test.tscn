@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://bin/game.gdns" type="Script" id=1]
 [ext_resource path="res://Floor1.tscn" type="PackedScene" id=2]
@@ -6,9 +6,16 @@
 [ext_resource path="res://bin/attacklight.gdns" type="Script" id=4]
 [ext_resource path="res://AttackLight.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Enemy.tscn" type="PackedScene" id=6]
-[ext_resource path="res://pathtile.meshlib" type="MeshLibrary" id=7]
 
 [sub_resource type="CylinderShape" id=1]
+
+[sub_resource type="Curve3D" id=2]
+_data = {
+"points": PoolVector3Array(  ),
+"tilts": PoolRealArray(  )
+}
+
+[sub_resource type="CubeMesh" id=3]
 
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 1 )
@@ -46,14 +53,34 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 0 )
 [node name="Spatial5" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00062, 16.7658 )
 
-[node name="AMap" type="Spatial" parent="."]
+[node name="Path" type="Path" parent="."]
+curve = SubResource( 2 )
 
-[node name="GridMap" type="GridMap" parent="AMap"]
-mesh_library = ExtResource( 7 )
-data = {
-"cells": PoolIntArray( 0, 65522, 0, 2, 65522, 0, 4, 65522, 0, 6, 65522, -1610612736, 8, 65522, 0, 65522, 65522, 0, 65524, 65522, 0, 65526, 65522, 536870912, 65528, 65522, 536870912, 65530, 65522, 536870912, 65532, 65522, 0, 65534, 65522, 536870912, 0, 65524, 0, 2, 65524, 536870912, 4, 65524, 536870912, 6, 65524, 0, 8, 65524, 536870912, 65522, 65524, 0, 65524, 65524, 536870912, 65526, 65524, 536870912, 65528, 65524, 536870912, 65530, 65524, 0, 65532, 65524, 536870912, 65534, 65524, 0, 0, 65526, 536870912, 2, 65526, 0, 4, 65526, 536870912, 6, 65526, 0, 8, 65526, 0, 65522, 65526, 536870912, 65524, 65526, -1610612736, 65526, 65526, 0, 65528, 65526, 536870912, 65530, 65526, 536870912, 65532, 65526, 0, 65534, 65526, 0, 65522, 65528, -1610612736, 65524, 65528, 536870912, 65526, 65528, 536870912, 65528, 65528, 536870912, 65530, 65528, 536870912 )
-}
-__meta__ = {
-"_editor_clip_": 0,
-"_editor_floor_": Vector3( 11, 0, 0 )
-}
+[node name="Waypoints" type="Spatial" parent="."]
+editor/display_folded = true
+visible = false
+
+[node name="MeshInstance" type="MeshInstance" parent="Waypoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5677, 1.33928, 19.3887 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="Waypoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.6154, 1.33928, 19.3887 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="MeshInstance3" type="MeshInstance" parent="Waypoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.6154, 1.33928, -20.1752 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="MeshInstance4" type="MeshInstance" parent="Waypoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.7875, 1.33928, -20.1752 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="MeshInstance5" type="MeshInstance" parent="Waypoints"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.261391, 1.33928, 3.49292 )
+mesh = SubResource( 3 )
+material/0 = null

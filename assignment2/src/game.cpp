@@ -32,7 +32,6 @@ void Game::_init()
 
 void Game::_ready()
 {
-    printf("Game::ready");
     get_tree()->connect("network_peer_disconnected", this, "_on_player_disconnected");
     get_tree()->connect("server_disconnected", this, "_on_server_disconnected");
 
@@ -45,7 +44,6 @@ void Game::_ready()
 
     Dictionary selfData = Dictionary(get_node("/root/Network")->get("selfData"));
     player->init(selfData["name"], selfData["position"], false);
-    Godot::print("hello");
 }
 
 void Game::_on_player_disconnected(int64_t id)
